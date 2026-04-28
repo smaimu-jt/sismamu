@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="id" class="h-full smooth-scroll">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Digital Sekolah</title>
+  <link rel="icon" type="image/png" href="assets/favicon.ico" />
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { jakarta: ['Plus Jakarta Sans', 'sans-serif'] },
+          colors: {
+            navy: { 50: '#f0f4f8', 100: '#d9e2ec', 200: '#bcccdc', 300: '#9fb3c8', 400: '#829ab1', 500: '#627d98', 600: '#486581', 700: '#334e68', 800: '#243b53', 900: '#102a43' },
+            emerald2: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+
+<body class="h-full">
+  <div id="loadingScreen">
+    <div class="loader"></div>
+  </div>
+
+  <div id="appWrapper" class="app-wrapper h-full overflow-auto w-full bg-light">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 md:h-20">
+
+          <div class="flex items-center gap-3">
+            <!-- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg">
+              <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+            </div> -->
+            <!-- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg overflow-hidden">  -->
+              <!-- <img src="assets/logo-sekolah.png" alt="Logo Sekolah" class="w-7 h-7 object-contain"> -->
+               <img src="assets/logo-sekolah.png" alt="Logo Sekolah" class="w-10 h-15 rounded-xl object-cover shadow-lg">
+            <!-- </div> -->
+            <span id="navSchoolName" class="text-white font-bold text-lg hidden sm:block">
+              SMA ISLAM MIFTAHUL ULUM JATIURIP
+            </span>
+          </div>
+
+          <div class="hidden md:flex items-center gap-8">
+            <a href="#beranda" class="text-white/80 hover:text-white text-sm font-medium transition">Beranda</a>
+            <a href="#profil" class="text-white/80 hover:text-white text-sm font-medium transition">Profil</a>
+            <a href="#aplikasi" class="text-white/80 hover:text-white text-sm font-medium transition">Aplikasi</a>
+            <a href="#kontak" class="text-white/80 hover:text-white text-sm font-medium transition">Kontak</a>
+            <button id="darkToggle"
+              class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
+              aria-label="Toggle dark mode">
+              <i data-lucide="moon" class="w-4 h-4 text-white" id="darkIcon"></i>
+            </button>
+          </div>
+
+          <button id="mobileMenuBtn" class="md:hidden w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center"
+            aria-label="Menu">
+            <i data-lucide="menu" class="w-5 h-5 text-white"></i>
+          </button>
+        </div>
+
+        <div id="mobileMenu" class="md:hidden">
+          <div class="pb-4 flex flex-col gap-2">
+            <a href="#beranda"
+              class="text-white/80 hover:text-white text-sm font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition mobile-nav-link">Beranda</a>
+            <a href="#profil"
+              class="text-white/80 hover:text-white text-sm font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition mobile-nav-link">Profil</a>
+            <a href="#aplikasi"
+              class="text-white/80 hover:text-white text-sm font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition mobile-nav-link">Aplikasi</a>
+            <a href="#kontak"
+              class="text-white/80 hover:text-white text-sm font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition mobile-nav-link">Kontak</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="beranda" class="relative overflow-hidden bg-hero">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-10 bg-radial-dec-1"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 rounded-full opacity-10 bg-radial-dec-2"></div>
+        <svg class="absolute bottom-0 left-0 right-0 w-full" viewbox="0 0 1440 120" fill="none">
+          <path d="M0,80 C360,120 720,40 1080,80 C1260,100 1380,60 1440,80 L1440,120 L0,120Z" fill="#f8fafc"
+            class="hero-wave-fill" />
+        </svg>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-emerald-300 text-xs font-semibold mb-6 backdrop-blur-sm">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Portal Pendidikan Digital
+            </div>
+            <h1 id="heroTitle"
+              class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-5 min-h-24">Sistem
+              Digital Sekolah <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-emerald-400 inline-block">Terpadu</span><span
+                id="typingCursor" class="animate-pulse">|</span>
+            </h1>
+            <p id="heroSubtitle" class="text-white/70 text-base sm:text-lg mb-8 max-w-lg leading-relaxed">Menghubungkan
+              seluruh ekosistem pendidikan dalam satu platform terintegrasi yang modern dan mudah digunakan.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="#aplikasi"
+                class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-navy-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 bg-gradient-btn">
+                Jelajahi Aplikasi <i data-lucide="arrow-right" class="w-4 h-4"></i> </a>
+              <a href="#profil"
+                class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-white border border-white/20 hover:bg-white/10 transition">
+                Profil Sekolah </a>
+            </div>
+          </div>
+          <div class="hidden md:flex justify-center">
+            <div class="relative w-80 h-80">
+              <div
+                class="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-400/20 to-emerald-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                <svg viewbox="0 0 200 200" class="w-56 h-56" fill="none">
+                  <rect x="30" y="60" width="60" height="80" rx="6" fill="#34d399" opacity=".3" stroke="#6ee7b7"
+                    stroke-width="2" />
+                  <rect x="110" y="40" width="60" height="100" rx="6" fill="#059669" opacity=".3" stroke="#6ee7b7"
+                    stroke-width="2" />
+                  <circle cx="60" cy="40" r="15" fill="#6ee7b7" opacity=".4" stroke="#34d399" stroke-width="2" />
+                  <path d="M50 35 L60 28 L70 35" stroke="#fff" stroke-width="2" fill="none" />
+                  <rect x="38" y="75" width="44" height="4" rx="2" fill="#6ee7b7" opacity=".6" />
+                  <rect x="38" y="85" width="30" height="4" rx="2" fill="#6ee7b7" opacity=".4" />
+                  <rect x="38" y="95" width="38" height="4" rx="2" fill="#6ee7b7" opacity=".5" />
+                  <rect x="118" y="55" width="44" height="4" rx="2" fill="#6ee7b7" opacity=".6" />
+                  <rect x="118" y="65" width="30" height="4" rx="2" fill="#6ee7b7" opacity=".4" />
+                  <rect x="118" y="75" width="38" height="4" rx="2" fill="#6ee7b7" opacity=".5" />
+                  <rect x="118" y="95" width="44" height="20" rx="4" fill="#34d399" opacity=".5" />
+                  <circle cx="170" cy="160" r="12" fill="#34d399" opacity=".2" stroke="#6ee7b7" stroke-width="1.5" />
+                  <path d="M166 160 L170 156 L174 160 M170 156 V166" stroke="#6ee7b7" stroke-width="1.5" fill="none" />
+                </svg>
+              </div>
+              <div
+                class="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center shadow-xl overflow-hidden float-anim">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Samsung_Galaxy_A7_%282018%29_SM-A750F_Blue_PSD_FL.png/220px-Samsung_Galaxy_A7_%282018%29_SM-A750F_Blue_PSD_FL.png"
+                  alt="Logo Sekolah" class="w-16 h-16 object-cover rounded-lg" loading="lazy"
+                  onerror="this.style.display='none';">
+              </div>
+              <div
+                class="absolute -bottom-4 -left-4 w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-600 to-navy-700 flex items-center justify-center shadow-xl float-anim-delayed">
+                <i data-lucide="shield-check" class="w-7 h-7 text-emerald-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="aplikasi" class="py-20 md:py-28 section-light bg-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 scroll-reveal">
+          <span
+            class="inline-flex items-center gap-2 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-3">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i> Layanan Digital
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mb-3">Aplikasi Sekolah</h2>
+          <p class="text-gray-500 max-w-xl mx-auto">Akses seluruh layanan digital sekolah dari satu pintu.</p>
+        </div>
+        <div id="appCards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        </div>
+      </div>
+    </section>
+
+    <section id="profil" class="py-20 md:py-28 bg-profil">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div class="scroll-reveal-left">
+            <span
+              class="inline-flex items-center gap-2 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-3">
+              <i data-lucide="school" class="w-4 h-4"></i> Profil
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mb-5">Tentang Sekolah</h2>
+            <p id="aboutText" class="text-gray-600 leading-relaxed mb-8">SMA Islam Miftahul Ulum Jatiurip merupakan institusi
+              pendidikan yang berkomitmen menghadirkan pendidikan berkualitas berbasis teknologi. Dengan
+              fasilitas modern dan tenaga pengajar berpengalaman, kami mempersiapkan generasi muda untuk menghadapi
+              tantangan global.</p>
+            <div class="space-y-6">
+              <div class="card-surface p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                <h3 class="font-bold text-navy-800 flex items-center gap-2 mb-2"><i data-lucide="eye"
+                    class="w-5 h-5 text-emerald-500"></i> Visi</h3>
+                <p id="visiText" class="text-gray-600 text-sm leading-relaxed">Mewujudkan insan unggul yang berkarakter, berprestasi, dan peduli lingkungan berlandaskan IMTAQ dan IPTEKS.</p>
+              </div>
+              <div class="card-surface p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                <h3 class="font-bold text-navy-800 flex items-center gap-2 mb-2"><i data-lucide="target"
+                    class="w-5 h-5 text-emerald-500"></i> Misi</h3>
+                <p id="misiText" class="text-gray-600 text-sm leading-relaxed">
+                  1. Membentuk peserta didik yang beriman dan bertaqwa, <br>
+                  2. Mengembangkan karakter peserta didik untuk cinta tanah air, <br>
+                  3. Membentuk peserta didik yang mampu mengembangkan potensi daerah, <br>
+                  4. Membangun karakter peserta didik menjadi pembelajar sepanjang hayat, <br>
+                  5. Mengembangkan rasa solidaritas dan toleransi peserta didik melalui kegiatan intrakurikuler maupun ekstrakurikuler, <br>
+                  6. Meningkatkan pembelajaran yang dapat mengembangkan peserta didik yang unggul dalam ilmu pengetahuan dan teknologi dengan memanfaatkan kemajuan teknologi informasi, <br>
+                  7. Mengembangkan sikap kritis, kreatif, komunikatif, dan kolaboratif melalui intrakurikuler dan proyek profil pelajar pancasila, <br>
+                  8. Mengembangkan life skill peserta didik melalui kegiatan intrakurikuler maupun ekstrakurikuler, <br>
+                  9. Membudayakan literasi melalui intrakurikuler dan proyek pelajar pancasila, <br>
+                  10. Mengembangkan karakter peserta didik melalui pembelajaran yang berbasis kearifan lingkungan dan pengembangan kultur sekolah, <br>
+                  11. Menciptakan lingkungan bersih, hijau, sejuk, rindang, aman, nyaman dan berwawasan wiyata mandala, <br>
+                  12. Mengembangkan networking dengan lembaga-lembaga pendidikan baik lokal, maupun internasional untuk peningkatan kualitas/pengembangan sekolah, <br>
+                  13. Mengembangkan kompetensi diri peserta didik menjadi manusia yang tangguh menghadapi persaingan global 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="scroll-reveal flex justify-center">
+            <div class="relative w-full max-w-sm">
+              <div class="rounded-3xl overflow-hidden bg-gradient-to-br from-navy-800 to-navy-900 p-8 shadow-2xl">
+                <div class="flex items-center gap-3 mb-6">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+                    <i data-lucide="graduation-cap" class="w-7 h-7 text-white"></i>
+                  </div>
+                  <div>
+                    <p class="text-white font-bold" id="profilSchoolName">SMA ISLAM MIFTAHUL ULUM JATIURIP</p>
+                    <p class="text-emerald-300 text-xs">Terakreditasi "B"</p>
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">NPSN</span><span
+                      class="text-white font-semibold text-sm">20546520</span>
+                  </div>
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">NSS</span><span
+                      class="text-emerald-400 font-semibold text-sm">30.2.05.20.18.001</span>
+                  </div>
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">Berdiri Sejak</span><span
+                      class="text-white font-semibold text-sm">2016</span>
+                  </div>
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">Akreditasi</span><span
+                      class="text-emerald-400 font-semibold text-sm">B</span>
+                  </div>
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">Kurikulum</span><span
+                      class="text-white font-semibold text-sm">Kurikulum Merdeka</span>
+                  </div>
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">Status</span><span
+                    class="text-emerald-400 font-semibold text-sm">Swasta</span>
+                  </div>
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">Yayasan</span><span
+                      class="text-white font-semibold text-sm">Miftahul Ulum Jatiurip</span>
+                  </div>
+                  <div class="flex justify-between items-center p-3 rounded-xl bg-white/5">
+                    <span class="text-white/60 text-sm">Program Keahlian</span><span
+                      class="text-emerald-400 font-semibold text-sm">Ilmu Pengetahuan Sosial</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-24 relative overflow-hidden bg-stats">
+      <div class="absolute inset-0 pointer-events-none opacity-10">
+        <div class="absolute top-10 left-10 w-40 h-40 rounded-full bg-radial-stats-1"></div>
+        <div class="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-radial-stats-2"></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 scroll-reveal">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Statistik</h2>
+          <p class="text-white/50">Data terkini yang mencerminkan kualitas pendidikan kami</p>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="scroll-reveal text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="users" class="w-7 h-7 text-emerald-400"></i>
+            </div>
+            <p class="stat-num text-3xl sm:text-4xl font-extrabold text-white" data-target="48">0</p>
+            <p class="text-white/50 text-sm mt-1">Siswa Aktif</p>
+          </div>
+          <div
+            class="scroll-reveal text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 delay-100">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="user-check" class="w-7 h-7 text-emerald-400"></i>
+            </div>
+            <p class="stat-num text-3xl sm:text-4xl font-extrabold text-white" data-target="13">0</p>
+            <p class="text-white/50 text-sm mt-1">Tenaga Pengajar</p>
+          </div>
+          <div
+            class="scroll-reveal text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 delay-200">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="award" class="w-7 h-7 text-emerald-400"></i>
+            </div>
+            <p class="stat-num text-3xl sm:text-4xl font-extrabold text-white" data-target="1500">0</p>
+            <p class="text-white/50 text-sm mt-1">Alumni</p>
+          </div>
+          <div
+            class="scroll-reveal text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 delay-300">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="book-open" class="w-7 h-7 text-emerald-400"></i>
+            </div>
+            <p class="stat-num text-3xl sm:text-4xl font-extrabold text-white" data-target="2200">0</p>
+            <p class="text-white/50 text-sm mt-1">Koleksi Buku</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="py-20 md:py-28 section-light bg-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 scroll-reveal">
+          <span
+            class="inline-flex items-center gap-2 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-3">
+            <i data-lucide="mail" class="w-4 h-4"></i> Hubungi Kami
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mb-3">Kontak Sekolah</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="scroll-reveal-left space-y-5">
+            <div class="card-surface flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+              <div class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5 text-emerald-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-800 text-sm mb-1">Alamat</h3>
+                <p id="addressDisplay" class="text-gray-500 text-sm">Jl. Simpang Tiga Jatiurip Krejengan Probolinggo</p>
+              </div>
+            </div>
+            <div class="card-surface flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+              <div class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="mail" class="w-5 h-5 text-emerald-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-800 text-sm mb-1">Email</h3>
+                <p id="emailDisplay" class="text-gray-500 text-sm">jatiuripsmaimiftahululum@gmail.com</p>
+              </div>
+            </div>
+            <div class="card-surface flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+              <div class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="phone" class="w-5 h-5 text-emerald-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-800 text-sm mb-1">Telepon</h3>
+                <p id="phoneDisplay" class="text-gray-500 text-sm">+62 831-3928-7121</p>
+              </div>
+            </div>
+            <div class="card-surface flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm">
+              <div class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-5 h-5 text-emerald-600"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-800 text-sm mb-1">Jam Operasional</h3>
+                <p class="text-gray-500 text-sm">Senin - Sabtu: 07.30 - 12.00 WIB</p>
+              </div>
+            </div>
+          </div>
+          <div class="scroll-reveal rounded-2xl overflow-hidden shadow-lg border border-gray-100 map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d174858.7116387039!2d113.22559864770766!3d-7.800901913776933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6fffcde0de8f1%3A0xea48f9f05450155d!2sPondok%20Pesantren%20Miftahul%20Ulum%20Jatiurip%20(MMU-JT)!5e1!3m2!1sen!2sid!4v1776899947454!5m2!1sen!2sid"
+              width="100%" height="100%" class="map-iframe" allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 border-t border-gray-100 bg-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <!-- <div
+              class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+              <i data-lucide="graduation-cap" class="w-5 h-5 text-white"></i>
+            </div> -->
+            <img src="assets/logo-sekolah.png" alt="Logo Sekolah" class="w-10 h-15 rounded-xl object-cover shadow-lg">
+            <span id="footerSchoolName" class="font-bold text-navy-800">SMA ISLAM MIFTAHUL ULUM JATIURIP</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="#"
+              class="w-9 h-9 rounded-full bg-navy-100 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition text-navy-600"
+              aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="#"
+              class="w-9 h-9 rounded-full bg-navy-100 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition text-navy-600"
+              aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#"
+              class="w-9 h-9 rounded-full bg-navy-100 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition text-navy-600"
+              aria-label="Youtube"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+            <a href="#"
+              class="w-9 h-9 rounded-full bg-navy-100 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition text-navy-600"
+              aria-label="Twitter"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+          </div>
+          <p class="text-gray-400 text-xs">© 2026 <span id="footerCopyName">Bang_Billy</span>. All rights
+            reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
