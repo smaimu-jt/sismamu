@@ -1,4 +1,3 @@
-
 // App data
 const apps = [
   { id:'ehadir', name:'E-Hadir', desc:'Sistem absensi digital untuk memantau kehadiran siswa dan guru secara real-time.', icon:'scan-line', color:'from-emerald-400 to-emerald-600', bg:'bg-emerald-50' },
