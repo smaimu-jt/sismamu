@@ -10,25 +10,25 @@ const apps = [
 
 function renderAppCards() {
   const container = document.getElementById('appCards');
-  const hasUrl = app.url && app.url !== '#';
-  return `
-    <div class="scroll-reveal app-card card-surface rounded-2xl bg-white border border-gray-100 shadow-sm p-6 flex flex-col" style="transition-delay:${i * .08}s">
-      <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${app.color} flex items-center justify-center mb-5 shadow-lg">
-        <i data-lucide="${app.icon}" class="w-7 h-7 text-white"></i>
+  container.innerHTML = apps.map((app, i) => {
+    const hasUrl = app.url && app.url !== '#';
+    return `
+      <div class="scroll-reveal app-card card-surface rounded-2xl bg-white border border-gray-100 shadow-sm p-6 flex flex-col" style="transition-delay:${i * .08}s">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${app.color} flex items-center justify-center mb-5 shadow-lg">
+          <i data-lucide="${app.icon}" class="w-7 h-7 text-white"></i>
+        </div>
+        <h3 class="font-bold text-navy-900 text-lg mb-2">${app.name}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-1">${app.desc}</p>
+        <a ${hasUrl ? `href="${app.url}" target="_blank"` : 'href="#" onclick="return false;"'}
+           onclick="showToast('${app.name} — Membuka portal...')"
+           class="w-full text-center px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r ${app.color} hover:opacity-90 transition shadow-sm">
+           Masuk Aplikasi
+        </a>
       </div>
-      <h3 class="font-bold text-navy-900 text-lg mb-2">${app.name}</h3>
-      <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-1">${app.desc}</p>
-      <a href="${app.url}" target="_blank"
-         onclick="showToast('${app.name} — Membuka portal...')"
-         class="w-full text-center px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r ${app.color} hover:opacity-90 transition shadow-sm">
-         Masuk Aplikasi
-      </a>
-    </div>
-  `;
+    `;
   }).join('');
   lucide.createIcons();
 }
-
 
 // Toast
 function showToast(msg) {
