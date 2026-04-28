@@ -1,10 +1,10 @@
 // App data
 const apps = [
-  { id:'ehadir', name:'E-Hadir', desc:'Sistem absensi digital untuk memantau kehadiran siswa dan guru secara real-time.', icon:'scan-line', color:'from-emerald-400 to-emerald-600', bg:'bg-emerald-50' },
-  { id:'epustaka', name:'E-Pustaka', desc:'Perpustakaan digital dengan katalog lengkap dan peminjaman buku online.', icon:'book-open', color:'from-blue-400 to-blue-600', bg:'bg-blue-50', url:'#' },
+  { id:'ehadir', name:'E-Hadir', desc:'Sistem absensi digital untuk memantau kehadiran siswa dan guru secara real-time.', icon:'scan-line', color:'from-emerald-400 to-emerald-600', bg:'bg-emerald-50', url:'' },
+  { id:'epustaka', name:'E-Pustaka', desc:'Perpustakaan digital dengan katalog lengkap dan peminjaman buku online.', icon:'book-open', color:'from-blue-400 to-blue-600', bg:'bg-blue-50', url:'' },
   { id:'ekelulusan', name:'E-Kelulusan', desc:'Cek status kelulusan dan unduh sertifikat secara online dengan mudah.', icon:'award', color:'from-amber-400 to-amber-600', bg:'bg-amber-50', url:'https://script.google.com/a/macros/guru.sma.belajar.id/s/AKfycbwFZ27MSJfjHyOIh9w-TfuBgzjLJEEptc4xooZqRXEoh3G8dWR8EODIqzls1jkQ7Q/exec' },
-  { id:'spmb', name:'SPMB', desc:'Sistem Penerimaan Murid Baru secara online, cepat, dan transparan.', icon:'file-text', color:'from-violet-400 to-violet-600', bg:'bg-violet-50' },
-  { id:'esurat', name:'E-Surat', desc:'Manajemen surat-menyurat digital yang efisien dan terorganisir.', icon:'mail', color:'from-rose-400 to-rose-600', bg:'bg-rose-50' }
+  { id:'spmb', name:'SPMB', desc:'Sistem Penerimaan Murid Baru secara online, cepat, dan transparan.', icon:'file-text', color:'from-violet-400 to-violet-600', bg:'bg-violet-50', url:'' },
+  { id:'esurat', name:'E-Surat', desc:'Manajemen surat-menyurat digital yang efisien dan terorganisir.', icon:'mail', color:'from-rose-400 to-rose-600', bg:'bg-rose-50', url:'' }
 ];
 
 function renderAppCards() {
@@ -18,16 +18,23 @@ function renderAppCards() {
         </div>
         <h3 class="font-bold text-navy-900 text-lg mb-2">${app.name}</h3>
         <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-1">${app.desc}</p>
-        <button
-          onclick="${hasUrl ? `window.open('${app.url}','_blank')` : `alert('Aplikasi ${app.name} masih dalam tahap pengembangan')`}"
-          class="w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r ${app.color} hover:opacity-90 transition shadow-sm">
-          Masuk Aplikasi
-        </button>
+        ${
+          hasUrl
+            ? `<button onclick="window.open('${app.url}','_blank')"
+                class="w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r ${app.color} hover:opacity-90 transition shadow-sm">
+                Masuk Aplikasi
+              </button>`
+            : `<button disabled
+                class="w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-gray-600 bg-gray-300 cursor-not-allowed">
+                Masih dalam pengembangan
+              </button>`
+        }
       </div>
     `;
   }).join('');
   lucide.createIcons();
 }
+
 
 // Toast
 function showToast(msg) {
