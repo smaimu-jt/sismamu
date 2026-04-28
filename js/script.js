@@ -18,11 +18,11 @@ function renderAppCards() {
         </div>
         <h3 class="font-bold text-navy-900 text-lg mb-2">${app.name}</h3>
         <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-1">${app.desc}</p>
-        <a ${hasUrl ? `href="${app.url}" target="_blank"` : 'href="#" onclick="return false;"'}
-           onclick="showToast('${app.name} — Membuka portal...')"
-           class="w-full text-center px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r ${app.color} hover:opacity-90 transition shadow-sm">
-           Masuk Aplikasi
-        </a>
+        <button
+          onclick="${hasUrl ? `window.open('${app.url}','_blank')` : `alert('Aplikasi ${app.name} masih dalam tahap pengembangan')`}"
+          class="w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r ${app.color} hover:opacity-90 transition shadow-sm">
+          Masuk Aplikasi
+        </button>
       </div>
     `;
   }).join('');
