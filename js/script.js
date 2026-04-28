@@ -2,15 +2,16 @@
 // App data
 const apps = [
   { id:'ehadir', name:'E-Hadir', desc:'Sistem absensi digital untuk memantau kehadiran siswa dan guru secara real-time.', icon:'scan-line', color:'from-emerald-400 to-emerald-600', bg:'bg-emerald-50' },
-  { id:'epustaka', name:'E-Pustaka', desc:'Perpustakaan digital dengan katalog lengkap dan peminjaman buku online.', icon:'book-open', color:'from-blue-400 to-blue-600', bg:'bg-blue-50', url:'http://e-pustaka.test' },
-  { id:'ekelulusan', name:'E-Kelulusan', desc:'Cek status kelulusan dan unduh sertifikat secara online dengan mudah.', icon:'award', color:'from-amber-400 to-amber-600', bg:'bg-amber-50' },
+  { id:'epustaka', name:'E-Pustaka', desc:'Perpustakaan digital dengan katalog lengkap dan peminjaman buku online.', icon:'book-open', color:'from-blue-400 to-blue-600', bg:'bg-blue-50', url:'#' },
+  { id:'ekelulusan', name:'E-Kelulusan', desc:'Cek status kelulusan dan unduh sertifikat secara online dengan mudah.', icon:'award', color:'from-amber-400 to-amber-600', bg:'bg-amber-50', url:'https://script.google.com/a/macros/guru.sma.belajar.id/s/AKfycbwFZ27MSJfjHyOIh9w-TfuBgzjLJEEptc4xooZqRXEoh3G8dWR8EODIqzls1jkQ7Q/exec' },
   { id:'spmb', name:'SPMB', desc:'Sistem Penerimaan Murid Baru secara online, cepat, dan transparan.', icon:'file-text', color:'from-violet-400 to-violet-600', bg:'bg-violet-50' },
   { id:'esurat', name:'E-Surat', desc:'Manajemen surat-menyurat digital yang efisien dan terorganisir.', icon:'mail', color:'from-rose-400 to-rose-600', bg:'bg-rose-50' }
 ];
 
 function renderAppCards() {
   const container = document.getElementById('appCards');
-  container.innerHTML = apps.map((app, i) => `
+  const hasUrl = app.url && app.url !== '#';
+  return `
     <div class="scroll-reveal app-card card-surface rounded-2xl bg-white border border-gray-100 shadow-sm p-6 flex flex-col" style="transition-delay:${i * .08}s">
       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${app.color} flex items-center justify-center mb-5 shadow-lg">
         <i data-lucide="${app.icon}" class="w-7 h-7 text-white"></i>
@@ -23,7 +24,8 @@ function renderAppCards() {
          Masuk Aplikasi
       </a>
     </div>
-  `).join('');
+  `;
+  }).join('');
   lucide.createIcons();
 }
 
