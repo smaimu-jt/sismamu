@@ -3,7 +3,7 @@ const apps = [
   { id:'ehadir', name:'E-Hadir', desc:'Sistem absensi digital untuk memantau kehadiran siswa dan guru secara real-time.', icon:'scan-line', color:'from-emerald-400 to-emerald-600', bg:'bg-emerald-50', url:'' },
   { id:'cbtonline', name:'CBT-Online', desc:'Metode pelaksanaan ujian menggunakan komputer, laptop, atau smartphone sebagai media utama.', icon:'monitor', color:'from-fuchsia-400 to-fuchsia-600', bg:'bg-fuchsia-50', url:'' },
   { id:'epustaka', name:'E-Pustaka', desc:'Perpustakaan digital dengan katalog lengkap dan peminjaman buku online.', icon:'book-open', color:'from-violet-400 to-violet-600', bg:'bg-violet-50', url:'' },
-  { id:'ekelulusan', name:'E-Kelulusan', desc:'Cek status kelulusan dan unduh sertifikat secara online dengan mudah.', icon:'award', color:'from-blue-400 to-blue-600', bg:'bg-blue-50', url:'https://script.google.com/macros/s/AKfycbwFZ27MSJfjHyOIh9w-TfuBgzjLJEEptc4xooZqRXEoh3G8dWR8EODIqzls1jkQ7Q/exec' },
+  { id:'ekelulusan', name:'E-Kelulusan', desc:'Cek status kelulusan dan unduh sertifikat secara online dengan mudah.', icon:'award', color:'from-blue-400 to-blue-600', bg:'bg-blue-50', url:'https://script.google.com/a/~/macros/s/AKfycbwFZ27MSJfjHyOIh9w-TfuBgzjLJEEptc4xooZqRXEoh3G8dWR8EODIqzls1jkQ7Q/exec' },
   { id:'spmb', name:'SPMB', desc:'Sistem Penerimaan Murid Baru secara online, cepat, dan transparan.', icon:'file-text', color:'from-amber-400 to-amber-600', bg:'bg-amber-50', url:'' },
   { id:'esurat', name:'E-Surat', desc:'Manajemen surat-menyurat digital yang efisien dan terorganisir.', icon:'mail', color:'from-rose-400 to-rose-600', bg:'bg-rose-50', url:'' }
 ];
